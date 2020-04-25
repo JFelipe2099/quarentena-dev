@@ -95,16 +95,21 @@
 
         <script>
             function sorteio(){
-                vencer = Math.floor(51 * Math.random());
+                vencer = Math.floor(11 * Math.random());
                 // alert(vencer);
                 // console.log(vencer);
-                escolha = prompt('Qual o seu número da sorte?');
+                escolha = prompt('Escolha um número entre 0 e 10?');
+
+                while (escolha > 10) {
+                    alert('Número inválido. Digite um número entre 0 e 10.');
+                    escolha = prompt('Escolha um número entre 0 e 10?');
+                }
 
                 if (escolha == vencer) {
                     resultado.innerHTML = 'Parabéns!!! Você ganhou uma corrida grátis.';
                 }
                 else {
-                    resultado.innerHTML = 'Não foi dessa vez, mas não desista, tente novamente na próxima corrida :)';
+                    resultado.innerHTML = 'Tente novamente.';
                 }
             }
         </script>
