@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>#Quarentena Dev | Aula 6</title>
+
+        <style>
+            * {
+                font-family: monospace;
+            }
+
+            html {
+                display:flex;
+                height: 100%;
+                justify-content: center;
+                align-content: center;
+
+                background-color: rgb(91, 194, 212);
+            }
+
+            body {
+                min-width: 150px;
+                min-height: 400px;
+
+                width: 50vw;
+                height: 75vw;
+                
+                padding: 1cm;
+                border: 1px solid lightgray;
+                box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, .25);
+                background: white;
+            }
+
+            h2 {
+                text-transform: uppercase;
+                text-decoration: underline;
+            }
+
+            ul {
+                list-style: square;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Código Fixo Sem JS -->
+        <!-- <h1>Nome: João Felipe</h1>
+
+        <h2>Ficha</h2>
+
+        <ul>
+            <li>Data Nascimento: 30/01/1999</li>
+            <li>Idade: 21 anos</li>
+            <li>Tem condição pré-existente: Não</li>
+            <li>Não precisa de acompanhamento médico</li>
+        </ul> -->
+
+        <h1 id="tagh1">Nome: </h1>
+
+        <h2>Ficha</h2>
+
+        <ul id="ficha">
+
+        </ul>
+
+        <script>
+            nome = prompt('Qual o seu nome?')
+            nasc = prompt('Data de Nascimento [dd/mm/aaaa]:')
+            datanasc = nasc.split('/')
+            data = Date().split(' ')
+            idade = data[3] - datanasc[2]
+            temcondic = confirm('Condição pré-existente?')
+            if (temcondic){
+                condic = 'Sim'
+            }
+            else{
+                condic = 'Não'
+            }
+
+            if (condic == 'Sim'){
+                medico = 'Precisa de acompanhamento médico'
+            }
+            else{
+                medico = 'Não precisa de acompanhamento médico'
+            }
+            tagh1.innerHTML = 'Nome: ' + nome
+            ficha.innerHTML = `
+            <li>Data Nascimento: ${nasc}</li>
+            <li>Idade: ${idade} anos</li>
+            <li>Tem condição pré-existente: ${condic}</li>
+            <li>${medico}</li>`
+        </script>
+    </body>
+</html>
