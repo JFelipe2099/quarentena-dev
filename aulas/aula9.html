@@ -171,11 +171,22 @@
 
     <script>
         function corrida() {
-            dist = document.getElementById('inputDistancia').value;
-            temp = document.getElementById('inputTempo').value;
+            // Forma inicial
+
+            // dist = document.getElementById('inputDistancia').value;
+            // temp = document.getElementById('inputTempo').value;
+            // pagar = 2 + (temp * 0.26) + (dist * 1.4);
+
+            // Durante aula
+            dist = inputDistancia.value;
+            temp = inputTempo.value;
             pagar = 2 + (temp * 0.26) + (dist * 1.4);
 
-            botaoCalcular.innerHTML = `TOTAL: R$${pagar.toFixed(2)}`;
+            botaoCalcular.innerHTML = `TOTAL: R$${formatamoeda(pagar)}`;
+        }
+
+        function formatamoeda(din){
+           return din.toFixed(2).replace('.', ',')
         }
     </script>
 </html>
