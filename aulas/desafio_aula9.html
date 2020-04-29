@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>#Quarentena Dev | Desafios aula 9</title>
+
+        <style>
+            * {
+                font-family: monospace;
+            }
+
+            html {
+                display:flex;
+                height: 100%;
+                justify-content: center;
+                align-content: center;
+
+                background-color: rgb(91, 194, 212);
+            }
+
+            body {
+                min-width: 150px;
+                min-height: 400px;
+
+                width: 50vw;
+                height: 75vw;
+                
+                padding: 1cm;
+                border: 1px solid lightgray;
+                box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, .25);
+                background: white;
+            }
+
+            h2 {
+                text-transform: uppercase;
+                text-decoration: underline;
+            }
+
+            ul {
+                list-style: square;
+            }
+
+            input {
+            border: none;
+            border-bottom: 2px solid #cacaca;
+            display: block;
+            width: calc(100% + 2rem);
+            height: 2.5em;
+            line-height: 2.5em;
+            position: relative;
+            left: -1rem;
+            z-index: 1;
+
+            padding-left: 5.2em;
+            
+            font-size: 15px;
+            font-weight: lighter;
+            
+            box-sizing: border-box;
+            }
+
+            button {
+            width: 100%;
+            padding: 1.5em 0;
+            position: relative;
+            bottom: -30px;
+            left: 0;
+            
+            cursor: pointer;
+            
+            font-size: 1em;
+            font-weight: bold;
+            text-transform: uppercase;
+            
+            border: none;
+            
+            transition: .2s ease;
+            color: #fff;
+            background-color: #0059EB;
+            box-shadow: 0 -2px 10px 2px rgba(0,0,0,.25);
+            }
+
+            button:hover {
+            /*   background-image: linear-gradient(
+                rgba(255,255,255,.25),
+                rgba(255,255,255,.25)
+            ) */
+            background-color: #4082f0;
+            }
+
+            button:active {
+            background-color: #3072e0;
+            font-size: .98em;
+            transition: .1s easeout;
+            }
+        </style>
+    </head>
+
+    <body>
+        <label for="nome">Nome: </label>
+        <input type="text" id="nome" placeholder="Ex.: Ana Maria"><br><br>
+
+        <label for="nascimento">Data de nascimento: </label>
+        <input type="text" id="nascimento" placeholder="dd/mm/aaaa"><br><br>
+
+        <label for="condicao">Condição pré-existente? </label>
+        <input type="text" id="condicao" placeholder="sim/não"><br><br>
+
+        <button onclick="dados()">Enviar</button>
+
+        <script>
+            function dados() {
+                nome = nome.value;
+                dataNasc = nascimento.value;
+                anoNasc = dataNasc.split('/')[2];
+                ano = Date().split(' ')[3];
+                idade = ano - anoNasc;
+                condicao = condicao.value;
+
+                if (condicao == 'sim'){
+                    medico = 'Precisa de acompanhamento médico';
+                }
+                else{
+                    medico = 'Não precisa de acompanhamento medico';
+                }
+
+                document.body.innerHTML = `
+                <h1>Nome: ${nome}</h1>
+
+                <ul>
+                    <li>Data Nascimento: ${dataNasc}</li>
+                    <li>Idade: ${idade} anos</li>
+                    <li>Tem condição pré-existente: ${condicao}</li>
+                    <li>${medico}</li>
+                </ul>`;
+            }
+        </script>
+    </body>
+</html>
